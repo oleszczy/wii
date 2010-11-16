@@ -164,7 +164,6 @@ void wiimoteServer::run(int port)
                     if(size >= sizeof(ECP_VSP_MSG))
                     {
                             memcpy(&command,Buffer,sizeof(ECP_VSP_MSG));
-printf("%d\n",command.i_code);
                             switch(command.i_code)
                             {
                                     case VSP_GET_READING:
