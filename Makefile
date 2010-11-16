@@ -1,15 +1,15 @@
-SOURCES = proxy.c orientation.c
-TESTSOURCES = test.cpp wiimote.cpp wiimoteRegistry.cpp wiimoteServer.cpp
+OLDSOURCES = proxy.c orientation.c
+SOURCES = test.cpp wiimote.cpp wiimoteRegistry.cpp wiimoteServer.cpp
+OLDAPPNAME = oldproxy
 APPNAME = proxy
-TESTAPPNAME = test
 
 CFLAGS += -lpthread -lcwiid -lm
 LDLIBS += -lpthread -lcwiid -lm
 
-proxy: $(SOURCES) $(TESTSOURCES)
+proxy: $(SOURCES) $(OLDSOURCES)
 	g++ $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(SOURCES) -o $(APPNAME)
-	g++ $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(TESTSOURCES) -o $(TESTAPPNAME)
+	g++ $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(OLDSOURCES) -o $(OLDAPPNAME)
 
 
 clean:
-	rm -rf proxy test *.o
+	rm -rf proxy oldproxy *.o
